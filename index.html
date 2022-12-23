@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Kumbh+Sans:100,200,300,regular,500,600,700,800,900"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,200,300,regular,500,600,700,800,900"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono:regular,italic,700,700italic" rel="stylesheet" />
+    <title>Pomodoro</title>
+</head>
+
+<body>
+    <main class="main">
+        <div class="logo">pomodoro</div>
+        <div class="buton">
+            <button class="buton__pomodoro btn active">pomodoro</button>
+            <button class="buton__short btn">short break</button>
+            <button class="buton__long btn">long break</button>
+        </div>
+        <div class="clock">
+            <div class="clock__oval1">
+                <!-- <div class="circle"> -->
+                <svg class="clock__svg">
+                    <circle cx="168" cy="168" r="164" id="mm"></circle>
+                </svg>
+                <!-- </div> -->
+                <div class="clock__oval2">
+
+                    <div class="clock__info">
+
+                        <div class="clock__time">20:00</div>
+                        <div class="clock__text">START</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="settings"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <g opacity="0.5" width="28" height="28">
+                    <path width="28" height="28" fill-rule="evenodd" clip-rule="evenodd"
+                        d="M24.0378 15.365L26.9654 17.682C27.229 17.899 27.3054 18.2771 27.1318 18.578L24.3568 23.429C24.1834 23.73 23.8226 23.849 23.5104 23.73L20.0555 22.323C19.341 22.883 18.557 23.345 17.7106 23.702L17.1903 27.412C17.1348 27.741 16.8504 28 16.5035 28H10.9535C10.6066 28 10.3221 27.741 10.2666 27.412L9.74633 23.702C8.89997 23.345 8.11604 22.8761 7.40145 22.323L3.94654 23.73C3.63435 23.856 3.27364 23.73 3.10018 23.429L0.325132 18.578C0.151671 18.27 0.228028 17.892 0.491634 17.682L3.41927 15.365C3.36379 14.917 3.32216 14.462 3.32216 14C3.32216 13.538 3.36379 13.083 3.41927 12.635L0.491634 10.318C0.228028 10.101 0.151671 9.72302 0.325132 9.42199L3.10025 4.57099C3.27364 4.26996 3.63442 4.15098 3.94661 4.26996L7.40152 5.67697C8.11604 5.11699 8.90003 4.65499 9.74639 4.29799L10.2667 0.588001C10.3222 0.259022 10.6067 0 10.9535 0H16.5036C16.8504 0 17.1348 0.259022 17.1973 0.588001L17.7177 4.29799C18.564 4.65499 19.3479 5.12394 20.0625 5.67697L23.5174 4.26996C23.8296 4.14396 24.1903 4.26996 24.3638 4.57099L27.1389 9.42199C27.3123 9.72997 27.236 10.108 26.9724 10.318L24.0378 12.635C24.0932 13.083 24.1349 13.538 24.1349 14C24.1349 14.462 24.0932 14.917 24.0378 15.365ZM8.8722 14C8.8722 16.709 11.0437 18.9 13.7285 18.9C16.4134 18.9 18.5848 16.7091 18.5848 14.0001C18.5848 11.2911 16.4134 9.10004 13.7285 9.10004C11.0437 9.10004 8.8722 11.291 8.8722 14Z"
+                        fill="#D7E0FF" />
+                </g>
+            </svg></button>
+    </main>
+    <div class="popup">
+        <div class="popup__body">
+            <div class="popup__settings">
+                <div class="settings__title">settings</div>
+                <div class="settings__bott">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g opacity="0.5">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M13.364 2.0502L11.9497 0.635986L6.99999 5.58573L2.05025 0.635986L0.636032 2.0502L5.58578 6.99995L0.636032 11.9497L2.05025 13.3639L6.99999 8.41416L11.9497 13.3639L13.364 11.9497L8.41421 6.99995L13.364 2.0502Z"
+                                fill="#1E213F" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <div class="popup__time">
+                <div class="time__title title">TIME (MINUTES)</div>
+                <div class="time__dropds">
+                    <div class="time__dropd pomodoro">
+                        <div class="time__name">pomodoro</div>
+                        <div class="time__info">
+                            <div class="time__num">20</div>
+                            <div class="time__buton"><svg class="time__up" width="24" height="17" viewBox="0 0 14 7"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 6L7 2L13 6" stroke="#1E213F" stroke-opacity="0.25" stroke-width="2" />
+                                </svg>
+                                <svg class="time__add" width="24" height="17" viewBox="0 0 14 7" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1L7 5L13 1" stroke="#1E213F" stroke-opacity="0.25" stroke-width="2" />
+                                </svg>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="time__dropd short">
+                        <div class="time__name">short break</div>
+                        <div class="time__info">
+                            <div class="time__num">5</div>
+                            <div class="time__buton"><svg class="time__up" width="24" height="17" viewBox="0 0 14 7"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 6L7 2L13 6" stroke="#1E213F" stroke-opacity="0.25" stroke-width="2" />
+                                </svg>
+                                <svg class="time__add" width="24" height="17" viewBox="0 0 14 7" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1L7 5L13 1" stroke="#1E213F" stroke-opacity="0.25" stroke-width="2" />
+                                </svg>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="time__dropd long">
+                        <div class="time__name">long break</div>
+                        <div class="time__info">
+                            <div class="time__num">10</div>
+                            <div class="time__buton"><svg class="time__up" width="24" height="17" viewBox="0 0 14 7"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 6L7 2L13 6" stroke="#1E213F" stroke-opacity="0.25" stroke-width="2" />
+                                </svg>
+                                <svg class="time__add" width="24" height="17" viewBox="0 0 14 7" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1L7 5L13 1" stroke="#1E213F" stroke-opacity="0.25" stroke-width="2" />
+                                </svg>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popup__font">
+                <div class="font__title title">FONT</div>
+                <div class="font__select">
+                    <div class="font__1 fn active">Aa</div>
+                    <div class="font__2 fn">Aa</div>
+                    <div class="font__3 fn">Aa</div>
+                </div>
+            </div>
+            <div class="popup__color">
+                <div class="color__title title">COLOR</div>
+                <div class="color__select">
+                    <div class="color__1 cl active"></div>
+                    <div class="color__2 cl"></div>
+                    <div class="color__3 cl"></div>
+                </div>
+            </div>
+            <button class="popup__button">Apply</button>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
