@@ -14,7 +14,7 @@ $font-family3: "Space Mono";
 
 body {
     color: $textcolor;
-    font-family: $font-family2;
+    //font-family: $font-family2;
     font-style: normal;
     font-weight: 700;
 }
@@ -73,7 +73,7 @@ body.scroll {
     }
 }
 .btn.active {
-    background-color: $color1;
+    //background-color: $color1;
     color: $akcentcolor;
     opacity: 1;
 }

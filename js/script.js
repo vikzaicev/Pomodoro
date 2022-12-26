@@ -1,3 +1,44 @@
+/*===============time==================================*/
+const time = document.querySelector('.clock__time')
+const body = document.body
+
+let pomodoroMin = document.getElementById('pomodoro').innerText
+let shortMin = document.getElementById('short').innerText
+let longMin = document.getElementById('long').innerText
+//body.style.fontFamily = 'Kumbh Sans'
+//body.style.color = '#f87070'
+
+let colorBody
+appli()
+
+function appli() {
+  const fonts = document.querySelectorAll('.fn')
+  fonts.forEach((font) => {
+    if (font.classList.contains('active')) {
+      body.style.fontFamily = `${font.id}`
+      console.log(font.id);
+    }
+  })
+
+  const colors = document.querySelectorAll('.cl')
+  colors.forEach((color) => {
+    if (color.classList.contains('active')) {
+      colorBody = color.id
+      const btnActive = document.querySelector('.btn.active')
+      body.style.color = `${colorBody}`
+      btnActive.style.backgroundColor = `${colorBody}`
+      console.log(colorBody);
+    }
+  })
+}
+
+const appliBtn = document.querySelector('.popup__button')
+appliBtn.addEventListener('click', appli)
+
+
+
+/*===============time==================================*/
+
 /*===============timerSVG==============================*/
 const mm = document.getElementById('mm')
 let style = 0
@@ -37,8 +78,26 @@ function tabs(elements) {
     }
   }
 }
+
+function tabsBtn(elements) {
+  for (let index = 0; index < elements.length; index++) {
+    const item = elements[index];
+
+    item.addEventListener("click", numbActiv);
+
+    function numbActiv() {
+      elements.forEach(element => {
+        element.classList.remove('active')
+        element.style.backgroundColor = "inherit"
+      });
+      item.classList.add('active')
+      item.style.backgroundColor = `${colorBody}`
+      console.log(item.id);
+    }
+  }
+}
 const btn = document.querySelectorAll('.btn');
-tabs(btn)
+tabsBtn(btn)
 
 const fn = document.querySelectorAll('.fn');
 tabs(fn)
@@ -49,7 +108,7 @@ tabs(cl)
 /*===============tab===================================*/
 
 /*===============popup=================================*/
-const body = document.body
+//const body = document.body
 const popup = document.querySelector('.popup')
 const settingsBtn = document.querySelector('.settings')
 const settingsCloseBtn = document.querySelector('.settings__bott')
