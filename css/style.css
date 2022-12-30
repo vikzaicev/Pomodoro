@@ -328,6 +328,13 @@ svg circle {
   line-height: 125%;
 }
 
+@media (max-width: 630px) {
+  .popup__body {
+    max-height: 715px;
+    width: 85%;
+  }
+}
+
 .popup__settings {
   display: -webkit-box;
   display: -webkit-flex;
@@ -345,9 +352,21 @@ svg circle {
   border-bottom: 1px solid #e3e1e1;
 }
 
+@media (max-width: 680px) {
+  .popup__settings {
+    padding: 40px 20px 24px;
+  }
+}
+
 .popup__time {
   padding: 24px 40px;
   border-bottom: 1px solid #e3e1e1;
+}
+
+@media (max-width: 680px) {
+  .popup__time {
+    padding: 24px 20px;
+  }
 }
 
 .popup__font {
@@ -367,6 +386,12 @@ svg circle {
           justify-content: space-between;
 }
 
+@media (max-width: 680px) {
+  .popup__font {
+    padding: 24px 20px;
+  }
+}
+
 .popup__color {
   padding: 24px 40px 40px;
   display: -webkit-box;
@@ -381,6 +406,13 @@ svg circle {
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+@media (max-width: 680px) {
+  .popup__color {
+    padding: 24px 20px;
+    margin-bottom: 20px;
+  }
 }
 
 .popup__button {
@@ -441,8 +473,31 @@ svg circle {
           justify-content: space-between;
 }
 
+@media (max-width: 630px) {
+  .time__dropds {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .time__dropd:not(:last-child) {
   margin-right: 20px;
+}
+
+@media (max-width: 660px) {
+  .time__dropd:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 630px) {
+  .time__dropd:not(:last-child) {
+    margin-right: 0px;
+    margin-bottom: 20px;
+  }
 }
 
 .time__name {
@@ -467,6 +522,15 @@ svg circle {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media (max-width: 630px) {
+  .time__info {
+    min-width: 220px;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+  }
 }
 
 .time__num {

@@ -224,6 +224,10 @@ svg circle {
         z-index: 12;
         color: $bgakc;
         line-height: 125%;
+        @media (max-width: 630px) {
+            max-height: 715px;
+            width: 85%;
+        }
     }
 
     // .popup__settings
@@ -234,6 +238,9 @@ svg circle {
         justify-content: space-between;
         padding: 40px 40px 24px;
         border-bottom: 1px solid #e3e1e1;
+        @media (max-width: 680px) {
+            padding: 40px 20px 24px;
+        }
     }
 
     // .popup__time
@@ -241,6 +248,9 @@ svg circle {
     &__time {
         padding: 24px 40px;
         border-bottom: 1px solid #e3e1e1;
+        @media (max-width: 680px) {
+            padding: 24px 20px;
+        }
     }
 
     // .popup__font
@@ -251,6 +261,9 @@ svg circle {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @media (max-width: 680px) {
+            padding: 24px 20px;
+        }
     }
 
     // .popup__color
@@ -260,6 +273,10 @@ svg circle {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @media (max-width: 680px) {
+            padding: 24px 20px;
+            margin-bottom: 20px;
+        }
     }
 
     // .popup__button
@@ -316,12 +333,22 @@ svg circle {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @media (max-width: 630px) {
+            flex-direction: column;
+                   }
     }
 
     // .time__dropd
-
+    
     &__dropd:not(:last-child) {
         margin-right: 20px;
+        @media (max-width: 660px) {
+            margin-right: 10px;
+        }
+        @media (max-width: 630px) {
+            margin-right: 0px;
+            margin-bottom: 20px;
+        }
     }
 
     // .time__name
@@ -343,6 +370,10 @@ svg circle {
         border-radius: 6px 10px;
         display: flex;
         align-items: center;
+        @media (max-width: 630px) {
+                        min-width: 220px;
+                        justify-content: space-around;
+        }
     }
 
     // .time__num
