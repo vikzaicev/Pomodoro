@@ -251,6 +251,7 @@ body.scroll {
   letter-spacing: 15px;
   z-index: 3;
   top: -120px;
+  cursor: pointer;
 }
 
 .clock__svg {
@@ -264,8 +265,6 @@ body.scroll {
 }
 
 svg circle {
-  width: 100%;
-  height: 100%;
   fill: transparent;
   stroke: #f87070;
   stroke-dasharray: 1030;
@@ -273,6 +272,9 @@ svg circle {
   -webkit-transform: translate(7px, 7px);
       -ms-transform: translate(7px, 7px);
           transform: translate(7px, 7px);
+  -webkit-transition: all 1s cubic-bezier(0, 0, 1, 0.99) 0s;
+  -o-transition: all 1s cubic-bezier(0, 0, 1, 0.99) 0s;
+  transition: all 1s cubic-bezier(0, 0, 1, 0.99) 0s;
 }
 
 .settings {

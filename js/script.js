@@ -1,69 +1,5 @@
-/*===============time==================================*/
-const time = document.querySelector('.clock__time')
-const body = document.body
-
-let pomodoroMin = document.getElementById('pomodoro').innerText
-let shortMin = document.getElementById('short').innerText
-let longMin = document.getElementById('long').innerText
-//body.style.fontFamily = 'Kumbh Sans'
-//body.style.color = '#f87070'
-
-let colorBody
-appli()
-
-function appli() {
-  const fonts = document.querySelectorAll('.fn')
-  fonts.forEach((font) => {
-    if (font.classList.contains('active')) {
-      body.style.fontFamily = `${font.id}`
-      console.log(font.id);
-    }
-  })
-
-  const colors = document.querySelectorAll('.cl')
-  colors.forEach((color) => {
-    if (color.classList.contains('active')) {
-      colorBody = color.id
-      const btnActive = document.querySelector('.btn.active')
-      body.style.color = `${colorBody}`
-      btnActive.style.backgroundColor = `${colorBody}`
-      console.log(colorBody);
-    }
-  })
-}
-
-const appliBtn = document.querySelector('.popup__button')
-appliBtn.addEventListener('click', appli)
-
-
-
-/*===============time==================================*/
-
-/*===============timerSVG==============================*/
-const mm = document.getElementById('mm')
-let style = 0
-mm.style.strokeDashoffset = style
-let start = 1030 / (1 * 60)
-
-mm.addEventListener('click', startTime)
-
-function startTime() {
-  let interval = setInterval(() => {
-    style += start
-    mm.style.strokeDashoffset = style
-    console.log(mm.style.strokeDashoffset);
-    if (mm.style.strokeDashoffset >= 995) {
-      let audio = new Audio('audio/facebook_louder.mp3');
-      audio.play();
-    };
-    if (mm.style.strokeDashoffset >= 1030) {
-      clearInterval(interval)
-    };
-  }, 1000);
-}
-/*===============timerSVG==============================*/
 /*===============tab===================================*/
-
+let timeHTML = document.querySelector('.clock__time')
 function tabs(elements) {
   for (let index = 0; index < elements.length; index++) {
     const item = elements[index];
@@ -92,7 +28,15 @@ function tabsBtn(elements) {
       });
       item.classList.add('active')
       item.style.backgroundColor = `${colorBody}`
-      console.log(item.id);
+      if (item.id == 'longbtn') {
+        timeHTML.innerText = `${longMin}:00`
+      }
+      if (item.id == 'shortbtn') {
+        timeHTML.innerText = `${shortMin}:00`
+      }
+      if (item.id == 'pomodorobtn') {
+        timeHTML.innerText = `${pomodoroMin}:00`
+      }
     }
   }
 }
@@ -106,13 +50,120 @@ const cl = document.querySelectorAll('.cl');
 tabs(cl)
 
 /*===============tab===================================*/
+/*===============time==================================*/
+
+const body = document.body
+let pomodoroMin
+let shortMin
+let longMin
+let colorBody
+appli()
+
+function appli() {
+  pomodoroMin = document.getElementById('pomodoro').innerText
+  shortMin = document.getElementById('short').innerText
+  longMin = document.getElementById('long').innerText
+
+  const fonts = document.querySelectorAll('.fn')
+  fonts.forEach((font) => {
+    if (font.classList.contains('active')) {
+      body.style.fontFamily = `${font.id}`
+    }
+  })
+
+  const colors = document.querySelectorAll('.cl')
+  colors.forEach((color) => {
+    if (color.classList.contains('active')) {
+      colorBody = color.id
+      const btnActive = document.querySelector('.btn.active')
+      const circle = document.querySelector('circle')
+
+      body.style.color = `${colorBody}`
+      circle.style.stroke = `${colorBody}`
+      btnActive.style.backgroundColor = `${colorBody}`
+    }
+  })
+}
+
+const appliBtn = document.querySelector('.popup__button')
+appliBtn.addEventListener('click', appli)
+
+/*===============time==================================*/
+
+/*===============start=================================*/
+
+
+
+/*===============start=================================*/
+/*===============timerSVG==============================*/
+const mm = document.getElementById('mm')
+let style = 0
+let interval = 0
+
+mm.addEventListener('click', function () {
+  console.log("hh");
+  let startHTML = document.querySelector('.clock__text')
+  if (startHTML.innerText == 'START') {
+    startTime1()
+    return;
+  };
+  if (startHTML.innerText == 'RESTART') {
+    style = 0
+    startTime1()
+    return;
+  };
+  if (startHTML.innerText == 'PAUSE') {
+    clearInterval(interval)
+    startHTML.innerText = 'STOP'
+    return;
+  };
+  if (startHTML.innerText == 'STOP') {
+    startTime1()
+    console.log('g');
+    startHTML.innerText = 'PAUSE'
+    return;
+  };
+})
+
+function startTime1() {
+  interval = setInterval(() => {
+    let startHTML = document.querySelector('.clock__text')
+    startHTML.innerText = 'PAUSE'
+
+    let minHTML = document.querySelector('.clock__time').innerText
+    //console.log(minHTML.split(':')[1]);
+    let sec = parseInt(minHTML.split(':')[1])
+    let min = parseInt(minHTML.split(':')[0])
+    
+    if(sec == 0) {
+      sec = 59
+      min--
+    }
+    sec--
+    minHTML = `${min}:${sec}`
+    console.log(timeHTML);
+
+    console.log(parseInt(timeHTML.innerText));
+    style += 1030 / (parseInt(timeHTML.innerText) * 60)
+
+    mm.style.strokeDashoffset = style
+    //console.log(mm.style.strokeDashoffset);
+    if (mm.style.strokeDashoffset >= 1030) {
+      let audio = new Audio('audio/facebook_louder.mp3');
+      audio.play();
+      startHTML.innerText = 'RESTART'
+      clearInterval(interval)
+    };
+  }, 1000);
+}
+/*===============timerSVG==============================*/
+
 
 /*===============popup=================================*/
 //const body = document.body
 const popup = document.querySelector('.popup')
 const settingsBtn = document.querySelector('.settings')
 const settingsCloseBtn = document.querySelector('.settings__bott')
-console.log(popup, settingsBtn, settingsCloseBtn);
 
 settingsBtn.addEventListener('click', openPopup)
 
@@ -134,7 +185,6 @@ function closePopupWin(event) {
   if (event.target == popup) {
     popup.classList.remove('active')
     body.classList.remove('scroll')
-    console.log(event.target);
   }
 }
 
